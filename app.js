@@ -28,7 +28,7 @@ var transporter = nodemailer.createTransport({
     service: 'Hotmail',
     auth: {
         user: 'lucas_kennedy@hotmail.fr',
-        pass: 'kamata91'
+        pass: process.env.MAILPWD
     }
 });
 

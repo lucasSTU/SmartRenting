@@ -1036,6 +1036,19 @@ footer .social-footer li:hover a {
 	border: 3px solid #FFF;
 	padding: 10px 5px;
 }
+.box-container h4 {
+	margin-bottom: 16px;
+}
+
+.separator:after {
+	border-bottom: 2px solid #FFF;
+    display: block;
+    height: 2px;
+    width: 40%;
+    content: "";
+    margin: auto;
+    padding-top: 40px;
+}
 
 .modal-content .popup-form .invalid {
 	border-color: #E74C3C;
@@ -1135,9 +1148,13 @@ input[type=radio] {
 	content: '';
 	height: 8px;
 	left: 2px;
+	opacity: 0;
 	position: absolute;
 	top: 2px;
 	width: 8px;
+}
+.inline-container input[type = radio]:checked + .radio-container .radio-checked {
+	opacity: 1;
 }
 .radio-label {
 	display: table-cell;
