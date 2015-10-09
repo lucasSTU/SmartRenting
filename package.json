@@ -1,0 +1,29 @@
+{
+  "name": "smart-renting",
+  "version": "1.0.0",
+  "description": "Server node for the site",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasSTU/SmartRenting.git"
+  },
+  "author": "lucas kennedy",
+  "license": "MIT",
+  "dependencies": {
+      "body-parser": "^1.14.0",
+      "crypto": "0.0.3",
+      "express": "^4.13.3",
+      "media-typer": "^0.3.0",
+      "mime": "^1.3.4",
+      "moment": "^2.10.6",
+      "multer": "^1.0.5",
+      "nodemailer": "^1.5.0"
+  },
+  "bugs": {
+    "url": "https://github.com/lucasSTU/SmartRenting/issues"
+  },
+  "homepage": "https://github.com/lucasSTU/SmartRenting#readme"
+}
