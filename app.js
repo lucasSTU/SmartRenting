@@ -32,6 +32,8 @@ var transporter = nodemailer.createTransport({
     }
 });
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // for parsing application/json
@@ -90,7 +92,7 @@ app.post('/form', upload.array('photos',2), function (req, res) {
     res.end();
 });
 
-var server = app.listen(8080, function () {
+var server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
 
