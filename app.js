@@ -25,9 +25,9 @@ var storage = multer.diskStorage({
 var upload = multer({storage: storage});
 var app = express();
 var transporter = nodemailer.createTransport({
-    service: 'Hotmail',
+    service: process.env.SERVICE,
     auth: {
-        user: 'lucas_kennedy@hotmail.fr',
+        user: process.env.SENDER,
         pass: process.env.MAILPWD
     }
 });
@@ -97,10 +97,9 @@ app.post('/form', upload.array('photos',2), function (req, res) {
     console.log(photos);
     console.log(formToCsv(req.body));
     var mailOptions = {
-        from: 'lucas_kennedy@hotmail.fr',
-        //to: 'romain.bernard7@gmail.com',
-        to: 'luk.kennedy.lk@gmail.com',
-        subject: 'Avancement du formulaire',
+        from: process.env.SENDER,
+        to: process.env.RECEIVER,
+        subject: process.env.SUBJECT,
         text: formToCsv(req.body),
         attachments: photos ? photos : null
     };
@@ -119,6 +118,7 @@ app.post('/form', upload.array('photos',2), function (req, res) {
 var server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
-
+  console.log(process.env.SENDER);
+  console.log(process.env.RECEIVER);
   console.log('Example app listening at http://%s:%s', host, port);
 });

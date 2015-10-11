@@ -163,7 +163,6 @@ jQuery(function($) {
 		$dialog.css("margin-top", offset);
 	}
 
-	var checkboxArr = ["shower","bath","oven","microwave","cooktop","fridge","freezer","wifi","tv","elevator"];
 	$('.popup-form').validate({
 		focusCleanup: true,
 		ignore: [],
@@ -239,6 +238,9 @@ jQuery(function($) {
 		}
 	});
 
+	console.log(window.location.protocol);
+	console.log(window.location.hostname);
+	console.log(window.location.href);
 	var formMultidataAjaxSubmit =  function () {
 		//form data to json object for post
 		var postData = new FormData();
@@ -281,9 +283,13 @@ jQuery(function($) {
 
 		//AJAX post request
 		console.log("submitting...");
+		var reqUrl = location.protocol + "//" + window.location.hostname;
+		reqUrl += window.location.hostname === "localhost" ? ":5000": "";
+		reqUrl += "/form";
+		console.log(reqUrl);
 		$.ajax({
 			type: 'POST',
-		    url: 'http://localhost:5000/form',
+		    url: reqUrl,
 			data: postData,
 			dataType:'json',
 			processData: false,
