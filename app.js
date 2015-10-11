@@ -119,6 +119,7 @@ var server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
   console.log(process.env.SENDER);
+  console.log(process.env.MAILPWD);
   console.log(process.env.RECEIVER);
   console.log('Example app listening at http://%s:%s', host, port);
 });
