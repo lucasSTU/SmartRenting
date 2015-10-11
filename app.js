@@ -28,7 +28,7 @@ var transporter = nodemailer.createTransport({
     service: 'Hotmail',
     auth: {
         user: 'lucas_kennedy@hotmail.fr',
-        pass: process.env.MAILPWD || "Whsonwaythe11&"
+        pass: process.env.MAILPWD
     }
 });
 
@@ -45,7 +45,7 @@ var formToCsv = function(req) {
                         "A new person has proposed his/her flat to your services.\n\n" +
                         "Instructions:\nCreate a .csv file with those lines at the beginning of it (without the quotes):\n" +
                         "\"sep=|\nDépart|Retour|Loyer|Prénom|Nom|Email|Téléphone|Adresse|Ville|Zipcode|Type de Logement|Surface|Nb de Pièces|"+
-                        "Etage|Nb de Chambres|Capacité d'hébergement|Douche|Baignoire|Four|Micro-ondes|Plaques|Frigo|Congélo|WiFi|Tv|Ascenseur|Que ferirez Vous avec l'argent\"\n\n" +
+                        "Etage|Nb de Chambres|Capacité d'hébergement|Douche|Baignoire|Four|Micro-ondes|Plaques|Frigo|Congélo|WiFi|Tv|Ascenseur|Que ferirez Vous avec l'argent \"\n\n" +
                         "Line to Copy(with the quotes):\n";
         string += "\"" + req.departDay + "\"|\"" + req.returnDay + "\"|\"" + req.rent + "\"|\"" + req.name + "\"|\"" + req.surname + "\"|\"" +
             req.mail + "\"|\"" + req.phone + "\"|\"" + req.road + "\"|\"" + req.city + "\"|\"" + req.zipcode + "\"|\"" + req.flatType + "\"|\"" +
