@@ -28,7 +28,7 @@ var transporter = nodemailer.createTransport({
     service: 'Hotmail',
     auth: {
         user: 'lucas_kennedy@hotmail.fr',
-        pass: process.env.MAILPWD
+        pass: process.env.MAILPWD || "Whsonwaythe11&"
     }
 });
 
@@ -44,10 +44,34 @@ var formToCsv = function(req) {
         var string =    "This is an automatic mail issued by SmartRentings' server.\n\n" +
                         "A new person has proposed his/her flat to your services.\n\n" +
                         "Instructions:\nCreate a .csv file with those lines at the beginning of it (without the quotes):\n" +
-                        "\"sep=|\nDépart|Retour|Loyer|Prénom|Nom|Email|Téléphone|Adresse|Ville|Zipcode\"\n\n" +
+                        "\"sep=|\nDépart|Retour|Loyer|Prénom|Nom|Email|Téléphone|Adresse|Ville|Zipcode|Type de Logement|Surface|Nb de Pièces|"+
+                        "Etage|Nb de Chambres|Capacité d'hébergement|Douche|Baignoire|Four|Micro-ondes|Plaques|Frigo|Congélo|WiFi|Tv|Ascenseur|Que ferirez Vous avec l'argent\"\n\n" +
                         "Line to Copy(with the quotes):\n";
         string += "\"" + req.departDay + "\"|\"" + req.returnDay + "\"|\"" + req.rent + "\"|\"" + req.name + "\"|\"" + req.surname + "\"|\"" +
-            req.mail + "\"|\"" + req.phone + "\"|\"" + req.road + "\"|\"" + req.city + "\"|\"" + req.zipcode + "\"";
+            req.mail + "\"|\"" + req.phone + "\"|\"" + req.road + "\"|\"" + req.city + "\"|\"" + req.zipcode + "\"|\"" + req.flatType + "\"|\"" +
+            req.surface + "\"|\"" + req.rooms + "\"|\"" + req.floor + "\"|\"" + req.bedrooms + "\"|\"" + req.nbPeople + "\"|\"";
+        string += req.shower === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.bath === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.oven === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.microwave === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.cooktop === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.fridge === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.freezer === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.wifi === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.tv === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.elevator === "true" ? "Oui":"Non";
+        string += "\"|\"";
+        string += req.wishes;
+        string += "\"";
         return string;
 };
 
@@ -74,8 +98,8 @@ app.post('/form', upload.array('photos',2), function (req, res) {
     console.log(formToCsv(req.body));
     var mailOptions = {
         from: 'lucas_kennedy@hotmail.fr',
-        to: 'romain.bernard7@gmail.com',
-        //to: 'luk.kennedy.lk@gmail.com',
+        //to: 'romain.bernard7@gmail.com',
+        to: 'luk.kennedy.lk@gmail.com',
         subject: 'Avancement du formulaire',
         text: formToCsv(req.body),
         attachments: photos ? photos : null

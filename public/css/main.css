@@ -925,6 +925,10 @@ footer .social-footer li:hover a {
 	-webkit-transition: background-color 0.3s;
 	transition: background-color 0.3s;
 }
+.form-control.form-white.small {
+	width: 70px;
+	height: 30px;
+}
 
 .form-control.form-white::-webkit-input-placeholder {
 	/* WebKit browsers */
@@ -959,7 +963,7 @@ footer .social-footer li:hover a {
 
 .modal-dialog {
 	width: 100%;
-	max-width: 660px;
+	max-width: 700px;
 	margin: 0 auto;
 }
 
@@ -1035,21 +1039,62 @@ footer .social-footer li:hover a {
 .box-container {
 	border: 3px solid #FFF;
 	padding: 10px 5px;
+	margin: 15px 0;
 }
 .box-container h4 {
 	margin-bottom: 16px;
 }
-
 .separator:after {
 	border-bottom: 2px solid #FFF;
     display: block;
     height: 2px;
     width: 40%;
     content: "";
-    margin: auto;
-    padding-top: 40px;
+    margin: 0 auto 16px auto ;
+    padding-top: 95px;
+}
+.separator-bis:after {
+	border-bottom: 2px solid #FFF;
+    display: block;
+    height: 2px;
+    width: 40%;
+    content: "";
+    margin: 16px auto 16px auto ;
+
 }
 
+/* Inline form */
+.popup-form .box-container .form-inline label,
+.popup-form .box-container .form-inline span {
+	color: #FFF;
+	font-size: 15px;
+	font-weight: 400;
+}
+.popup-form .box-container .form-group {
+	margin-left: 35px;
+}
+.popup-form .box-container .form-group:first-child {
+	margin-left: 0;
+}
+.popup-form .box-container .form-group label {
+	margin-right: 8px;
+	margin-bottom: 0;
+}
+.popup-form .box-container .form-inline.text-left {
+	margin-bottom: 20px;
+}
+.popup-form .box-container .form-inline.text-left:first-child {
+	margin-top: 20px;
+}
+.popup-form .box-container .form-inline.text-left .checkbox-inline {
+	padding-left: 0;
+}
+.popup-form .box-container .form-inline.text-left label {
+	margin-right: 0;
+}
+.popup-form .box-container .form-inline.text-left label:first-child {
+	margin-left: 8px;
+}
 .modal-content .popup-form .invalid {
 	border-color: #E74C3C;
 }
@@ -1063,6 +1108,7 @@ footer .social-footer li:hover a {
 /****************
 Styled Checkboxes, Radios, etc...
 ****************/
+/*Agreement checkbox*/
 .checkbox {
 	position: relative;
 	display: block;
@@ -1110,6 +1156,7 @@ Styled Checkboxes, Radios, etc...
 	white-space: normal;
 }
 
+/*Radios*/
 .inline-container {
 	display: inline-block;
 }
@@ -1163,6 +1210,36 @@ input[type=radio] {
 	vertical-align: middle;
 }
 
+/*Inline checkbox*/
+.checkbox-inline input[type=checkbox] {
+	display: none;
+}
+.styled-inline-checkbox {
+	background: transparent;
+	border: 2px solid #FFF;
+	cursor: pointer;
+	content: '';
+	display: inline-block;
+	height: 13px;
+	margin-right: 8px;
+	position: relative;
+	width: 13px;
+	-webkit-transition: background-color 0.3s;
+	transition: background-color 0.3s;
+}
+.styled-inline-checked {
+	background-color: #FFF;
+	content: '';
+	height: 5px;
+	left: 2px;
+	opacity: 0;
+	position: absolute;
+	top: 2px;
+	width:5px;
+}
+.checkbox-inline input[type=checkbox]:checked + .styled-inline-checkbox .styled-inline-checked {
+	opacity: 1;
+}
 
 .btn.btn-submit {
 	width: 100%;

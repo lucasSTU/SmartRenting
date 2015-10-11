@@ -395,7 +395,7 @@ Très bien situé, immeuble calme et proche de supérettes. J'ai passé un excel
 						</div>
 						<div class="col-lg-12">
 							<h4>Si vous pouviez dépenser votre loyer sur autre chose, que feriez vous? *</h4>
-							<input type="text" class="form-control form-white" name="wishes" placeholder="Ex: j'utiliserais l'argent pour visiter ma famille en Europe">
+							<textarea rows="4" type="text" class="form-control form-white" name="wishes" placeholder="Ex: j'utiliserais l'argent pour visiter ma famille en Europe"></textarea>
 						</div>
 					</div>
 					<div class="row">
@@ -434,16 +434,16 @@ Très bien situé, immeuble calme et proche de supérettes. J'ai passé un excel
 					</div>
 					<div class="row">
 						<div class="dropdown col-lg-12">
-						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Comment avez vous entendu parler du programme?
-						</button>
-						<ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
-							<li class="animated lightSpeedIn"><a href="#">Choix 1</a></li>
-							<li class="animated lightSpeedIn"><a href="#">Choix 2</a></li>
-							<li class="animated lightSpeedIn"><a href="#">Choix 3</a></li>
-							<li class="animated lightSpeedIn"><a href="#">Autre</a></li>
-						</ul>
-					</div>
+							<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Comment avez vous entendu parler du programme?
+							</button>
+							<ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
+								<li class="animated lightSpeedIn"><a href="#">Choix 1</a></li>
+								<li class="animated lightSpeedIn"><a href="#">Choix 2</a></li>
+								<li class="animated lightSpeedIn"><a href="#">Choix 3</a></li>
+								<li class="animated lightSpeedIn"><a href="#">Autre</a></li>
+							</ul>
+						</div>
 						<div class="col-lg-12">
 							<h4>Avez vous un code promo? *</h4>
 							<input type="text" class="form-control form-white" name="promo">
@@ -451,26 +451,101 @@ Très bien situé, immeuble calme et proche de supérettes. J'ai passé un excel
 					</div>
 					<div class="row box-container">
 						<div class="col-lg-12 separator">
-							<h4>Type de Logement:</h4>
-							<div class="col-lg-2 inline-container">
-								<input type="radio" id="flatType1" name="flatType">
-								<label for="flatType1" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Studio</span></label>
+							<div clas="row radios-selector">
+								<div class="col-lg-12">
+									<h4>Type de Logement:</h4>
+								</div>
+								<div class="col-lg-2 inline-container">
+									<input type="radio" id="flatType1" name="flatType" value="Studio">
+									<label for="flatType1" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Studio</span></label>
+								</div>
+								<div class="col-lg-4 inline-container">
+									<input type="radio" id="flatType2" name="flatType" value="Appartement entier">
+									<label for="flatType2" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Appartement entier</span></label>
+								</div>
+								<div class="col-lg-4 inline-container">
+									<input type="radio" id="flatType3" name="flatType" value="Appartement partagé">
+									<label for="flatType3" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Appartement partagé</span></label>
+								</div>
+								<div class="col-lg-2 inline-container">
+									<input type="radio" id="flatType4" name="flatType" value="Maison">
+									<label for="flatType4" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Maison</span></label>
+								</div>
 							</div>
-							<div class="col-lg-4 inline-container">
-								<input type="radio" id="flatType2" name="flatType">
-								<label for="flatType2" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Appartement entier</span></label>
+						</div>
+						<div class="col-lg-12 separator-bis">
+							<div class="row form-inline">
+								<div class=" form-group">
+									<label for="surface">Surface</label>
+    								<input type="text" class="form-control form-white small" id="surface" name="surface">
+									<span>m²</span>
+								</div>
+								<div class="form-group">
+									<label for="rooms">Nombre de pièces</label>
+    								<input type="text" class="form-control form-white small" id="rooms" name="rooms">
+								</div>
+								<div class="form-group">
+									<label for="floor">Étage</label>
+    								<input type="text" class="form-control form-white small" id="floor" name="floor">
+								</div>
 							</div>
-							<div class="col-lg-4 inline-container">
-								<input type="radio" id="flatType3" name="flatType">
-								<label for="flatType3" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Appartement partagé</span></label>
-							</div>
-							<div class="col-lg-2 inline-container">
-								<input type="radio" id="flatType4" name="flatType">
-								<label for="flatType4" class="radio-container" align="center" ><span class="styled-container"><span class="styled-radio"><span class="radio-checked"></span></span></span><span class="radio-label">Maison</span></label>
+							<div class="row form-inline">
+								<div class=" form-group">
+									<label for="bedrooms">Nombre des chambres</label>
+    								<input type="text" class="form-control form-white small" id="berooms" name="bedrooms">
+								</div>
+								<div class="form-group">
+									<label for="nbPeople">Capacité d'hébergement</label>
+    								<input type="text" class="form-control form-white small" id="nbPeople" name="nbPeople">
+								</div>
 							</div>
 						</div>
 						<div class="col-lg-12">
-
+							<div class="row form-inline text-left" >
+								<div class="form-group">
+									<label>Salle de Bain: </label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="shower"><input type="checkbox" id="shower" class="shower" name="shower"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Douche</label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="bath"><input type="checkbox" id="bath" class="bath" name="bath"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Baignoire</label>
+								</div>
+							</div>
+							<div class="row form-inline text-left" >
+								<div class="form-group">
+									<label>Cuisine: </label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="oven"><input type="checkbox" id="oven" class="oven" name="oven"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Four</label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="microwave"><input type="checkbox" id="microwave" class="microwave" name="microwave"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Micro-onde</label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="cooktop"><input type="checkbox" id="cooktop" class="cooktop" name="cooktop"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Plaques</label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="fridge"><input type="checkbox" id="fridge" class="fridge" name="fridge"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Frigo</label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="freezer"><input type="checkbox" id="freezer" class="freezer" name="freezer"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Freezer</label>
+								</div>
+							</div>
+							<div class="row form-inline text-left" >
+								<div class="form-group">
+									<label>Options: </label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="wifi"><input type="checkbox" id="wifi" class="wifi" name="wifi"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>WiFi</label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="tv"><input type="checkbox" id="tv" class="tv" name="tv"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Télévision</label>
+								</div>
+								<div class="form-group">
+									<label class="checkbox-inline" for="elevator"><input type="checkbox" id="elevator" class="elevator" name="elevator"><span class="styled-inline-checkbox"><span class="styled-inline-checked"></span></span>Ascenseur</label>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="row">

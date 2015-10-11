@@ -163,6 +163,7 @@ jQuery(function($) {
 		$dialog.css("margin-top", offset);
 	}
 
+	var checkboxArr = ["shower","bath","oven","microwave","cooktop","fridge","freezer","wifi","tv","elevator"];
 	$('.popup-form').validate({
 		focusCleanup: true,
 		ignore: [],
@@ -193,7 +194,16 @@ jQuery(function($) {
 			zipcode: {
 				required: true,
 				digits: true
-			}
+			},
+			flatType: {
+				required: true
+			},
+			surface: "required",
+			rooms: "required",
+			floor: "required",
+			bedrooms: "required",
+			nbPeople:"required",
+			wishes: "required"
 		},
 		messages: {},
 		success:"valid",
@@ -201,16 +211,20 @@ jQuery(function($) {
 		errorClass:"invalid",
 		highlight: function(element, errorClass, validClass) {
 			if($(element).attr("name") === "agree") {
-				console.log("highlight checkbox");
 				$(element).closest(".checkbox").find(".styled-checkbox").addClass(errorClass).removeClass(validClass);
+			}  else if ($(element).attr("name") === "flatType") {
+				$(".styled-radio").addClass(errorClass).removeClass(validClass);
 			} else {
 				$(element).addClass(errorClass).removeClass(validClass);
 			}
   		},
   		unhighlight: function(element, errorClass, validClass) {
-			if($(element).attr("name") === "agree") {
+			if($(element).attr("name") === "agree" ) {
 				console.log("unhighlight checkbox");
 				$(element).closest(".checkbox").find(".styled-checkbox").removeClass(errorClass).addClass(validClass);
+			} else if ($(element).attr("name") === "flatType") {
+
+				$(".styled-radio").removeClass(errorClass).addClass(validClass);
 			} else {
 				$(element).removeClass(errorClass).addClass(validClass);
 			}
@@ -238,6 +252,25 @@ jQuery(function($) {
 			postData.append('road', $('input[name=road]').val());
 			postData.append('city', $('input[name=city]').val());
 			postData.append('zipcode', $('input[name=zipcode]').val());
+			postData.append('flatType', $('input[name=flatType]').val());
+			postData.append('surface', $('input[name=surface]').val());
+			postData.append('rooms', $('input[name=rooms]').val());
+			postData.append('floor', $('input[name=floor]').val());
+			postData.append('bedrooms', $('input[name=bedrooms]').val());
+			postData.append('nbPeople', $('input[name=nbPeople]').val());
+			postData.append('shower', $('input[name=shower]').prop("checked"));
+			postData.append('bath', $('input[name=bath]').prop("checked"));
+			postData.append('oven', $('input[name=oven]').prop("checked"));
+			postData.append('microwave', $('input[name=microwave]').prop("checked"));
+			postData.append('cooktop', $('input[name=cooktop]').prop("checked"));
+			postData.append('fridge', $('input[name=fridge]').prop("checked"));
+			postData.append('freezer', $('input[name=freezer]').prop("checked"));
+			postData.append('wifi', $('input[name=wifi]').prop("checked"));
+			postData.append('tv', $('input[name=tv]').prop("checked"));
+			postData.append('elevator', $('input[name=elevator]').prop("checked"));
+			postData.append('wishes', $('textarea[name=wishes]').val());
+
+			console.log($('input[name=wishes]').val());
 
 			var fileSelect = document.getElementById('files');
 			var rawFiles = fileSelect.files;
@@ -250,7 +283,7 @@ jQuery(function($) {
 		console.log("submitting...");
 		$.ajax({
 			type: 'POST',
-		    url: 'http://localhost:8080/form',
+		    url: 'http://localhost:5000/form',
 			data: postData,
 			dataType:'json',
 			processData: false,
