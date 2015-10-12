@@ -272,8 +272,6 @@ jQuery(function($) {
 			postData.append('elevator', $('input[name=elevator]').prop("checked"));
 			postData.append('wishes', $('textarea[name=wishes]').val());
 
-			console.log($('input[name=wishes]').val());
-
 			var fileSelect = document.getElementById('files');
 			var rawFiles = fileSelect.files;
 			for(var i= 0; i< rawFiles.length; i++) {
